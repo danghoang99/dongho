@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto On/Off</title>
+</head>
+<body>
+    <div class="app">
+        <div class="lamp">
+            <img src="./assets/image/denoff.png" alt="lamp" class="lamp-img">
+            <div class="control">
+                <button class="on">On</button>
+                <button class="off">Off</button>
+            </div>
+            <div class="time">
+                <span class="hours">00</span>
+                <span>:</span>
+                <span class="minutes">00</span>
+                <span>:</span>
+                <span class="seconds">00</span>
+            </div>
+            <a href="https://www.facebook.com/danghoang.user">Nguyễn Đăng Hoàng</a>
+        </div>
+    </div>
+    <script>
+        var on = document.querySelector('.on')
+        var off = document.querySelector('.off')
+        var hour = document.querySelector('.hours')
+        var minute = document.querySelector('.minutes')
+        var second = document.querySelector('.seconds')
+        var lampImg = document.querySelector('.lamp-img')
+        on.onclick = function() {
+            lampImg.src = './assets/image/denon.png'
+        }
+        off.onclick = function() {
+            lampImg.src = './assets/image/denoff.png'
+        }
+
+        setInterval(() => {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            hour.textContent = hours;
+            minute.textContent = minutes;
+            second.textContent = seconds;
+            if (seconds < 10) {
+                second.textContent = '0' + seconds;
+            }
+        }, 10);
+    </script>
+</body>
+</html>
